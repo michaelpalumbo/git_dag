@@ -13,7 +13,7 @@
 
 .merkle-1,
 .merkle-2 { height: 192px; }
-.merkle-3 { height: 208px; }
+.merkle-3 { height: 100%; }
 .merkle-4 { height: 240px; }
 .merkle-5 { height: 368px; }
 .merkle-container {
@@ -50,7 +50,7 @@ text {
 
 <head>
 <script src="d3.min.js"></script>
-<script src="dependency_graph.js"> //IMPORTANT MAKE SURE THAT WHEN you output the json of the dependency graph, that it appends 'var vr_in_vr = ' before the JSON object</script>
+<script src="dependency_graph.js"> //IMPORTANT MAKE SURE THAT WHEN you output the js of the dependency graph, that it appends 'var git_history = ' before the JSON object</script>
 
 <div>
 <div class="merkle-1">
@@ -253,9 +253,9 @@ var makeGraph  = function(target, graphData) {
             });
     }
 };
-makeGraph('.merkle-1', forceInput);
-makeGraph('.merkle-2', forceFormat(gitDag));
-//makeGraph('.merkle-3', forceFormat(vr_in_vr));
+//makeGraph('.merkle-1', forceInput);
+//makeGraph('.merkle-2', forceFormat(gitDag));
+makeGraph('.merkle-3', forceFormat(git_history));
 </script>
 
 </html>

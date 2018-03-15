@@ -1,6 +1,6 @@
 #!/usr/bin/env nodejs
 /* makeDag - creates a JSON dependency graph from .git/objects */
-console.log(__dirname + 'dependency_graph.json')
+console.log(__dirname + '/dependency_graph.js')
 var glob = require('glob'),
     fs = require('fs'),
     zlib = require('zlib');
@@ -52,13 +52,19 @@ var handleObjects = function(objData, name) {
     });
 
     // Don't output until you've got it all
-    if (Object.keys(final).length !== total) {
+    if (Object.keys(final, { maxArrayLength: null }).length !== total) {
         return;
     }
 
     // Output what ya got.
    console.log(final);
-    fs.writeFile(__dirname + 'dependency_graph.json', final, 'utf8', function (err) {
+
+
+      var dependencies = JSON.stringify(final, null, ' ');
+
+
+
+    fs.writeFile(__dirname + '/dependency_graph.js', "var git_history = " + dependencies, 'utf8', function (err) {
         
         if (err) {
             return console.log(err);
