@@ -6,7 +6,7 @@ var child;
 watcher.add(__dirname + "/.git/objects");
 
 watcher.on('change', function(file, stat) {
-
+//test commit
 	child = exec("node makedag.js")
   console.log('File modified: %s', file);
   if (!stat) console.log('deleted');
