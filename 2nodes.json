@@ -1,5 +1,0 @@
-// Node → [dependent nodes]
-var dag = {
-    'Node A': ['Node B'],
-    'Node B': []
-};
